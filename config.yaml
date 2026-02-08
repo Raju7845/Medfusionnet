@@ -1,0 +1,22 @@
+# MedFusionNet Training Configuration
+model_name: "MedFusionNet_v1"
+
+# Hyperparameters
+training:
+  batch_size: 32
+  stage1_epochs: 70       # Backbone Frozen
+  stage2_epochs: 30       # End-to-End Fine-tuning
+  learning_rate_init: 0.0001
+  learning_rate_ft: 0.00001
+  weight_decay: 0.01
+  img_size: 224
+  text_max_len: 128
+
+# Dataset Roots (Kaggle Paths)
+paths:
+  breast_cancer: "/kaggle/input/cbis-ddsm-breast-cancer-image-dataset"
+  cervical_cancer: "/kaggle/input/224-224-cervical-cancer-screening"
+  pcos: "/kaggle/input/pcos-detection-using-ultrasound-images"
+
+# Weights Output
+save_path: "./medfusionnet_best_model.pth"
